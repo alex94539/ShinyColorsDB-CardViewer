@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html class="h-100 w-100">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <script src="./main.js"></script>
+    <!--link rel="stylesheet" href="./PCardViewer.css"-->
+</head>
+
+<body class="h-100" onload="GetIdolUnitList()">
+    <div class="container-fluid d-flex p-0 h-100">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-info d-inline-block h-100 col-md-2" id="divSidebar">
+            <img src="./283_192x192.png" alt="">
+            <div class="list-group list-group-root well" id="divIdolUnitList">
+                <!--a href="#" class="list-group-item" data-toggle="collapse" data-target="#unit1">
+                    <i class="glyphicon glyphicon-chevron-right"></i>Illumination Stars
+                </a>
+                <div class="list-group collapse" id="unit1">
+                    <a href="./1" class="list-group-item">櫻木真乃</a>
+                    <a href="./2" class="list-group-item">風野灯織</a>
+                    <a href="./3" class="list-group-item">八宮めぐる</a>
+                </div>
+                <a href="#" class="list-group-item" data-toggle="collapse" data-target="#unit2">
+                    <i class="glyphicon glyphicon-chevron-right"></i>L'Antica
+                </a>
+                <div class="list-group collapse" id="unit2">
+                    <a href="./4" class="list-group-item">月岡恋鐘</a>
+                    <a href="./5" class="list-group-item">田中摩美々</a>
+                    <a href="./6" class="list-group-item">白瀬咲耶</a>
+                    <a href="./7" class="list-group-item">三峰結華</a>
+                    <a href="./8" class="list-group-item">幽谷霧子</a>
+                </div-->
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-shrink-0 p-3 d-inline-block col-md-10 h-100" id="divDisplay">
+            <div class="card-columns h-100 overflow-auto">
+                <div class="card rounded-lg" style="max-height: 35%;">
+                    <h2 class="display-5 text-center pt-3 pb-2">
+                        最新情報列表
+                    </h2>
+                    <div class="list-group list-group-root overflow-auto">
+                        <a href="#" class="list-group-item">2021/06/11 更新情報</a>
+                        <a href="#" class="list-group-item">2021/05/31 更新情報</a>
+                        <a href="#" class="list-group-item">2021/05/20 更新情報</a>
+                        <a href="#" class="list-group-item">2021/05/09 更新情報</a>
+                        <a href="#" class="list-group-item">2021/04/30 更新情報</a>
+                    </div>
+                </div>
+
+                <a href="#" class="card rounded-lg">
+                    <img src="https://static.shinycolors.moe/pictures/bigPic/c1074783-ddc4-4ec4-8352-35eab6c6007b.jpg" alt="Responsive image" class="card-img-top">
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">2021/06/11 更新情報</h5>
+                        <p class="card-text">新增 今のうちは走らない 和泉愛依</p>
+                    </div>
+                </a>
+                <a href="#" class="card rounded-lg">
+                    <img src="https://static.shinycolors.moe/pictures/bigPic/84611917-4378-4497-876f-4d0df1fdd212.jpg" alt="Responsive image" class="card-img-top">
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">2021/05/31 更新情報</h5>
+                        <p class="card-text">新增 ハッピー・アイ・スクリーム 桑山千雪</p>
+                    </div>
+                </a>
+                <a href="#" class="card rounded-lg">
+                    <img src="https://static.shinycolors.moe/pictures/bigPic/84611917-4378-4497-876f-4d0df1fdd212.jpg" alt="Responsive image" class="card-img-top">
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">2021/05/20 更新情報</h5>
+                        <p class="card-text">新增 ハッピー・アイ・スクリーム 桑山千雪</p>
+                    </div>
+                </a>
+
+                <!--div class="card">
+                    <ul class="list-group list-group-root">
+                        <li><a href="#">2021/06/11 更新情報</a></li>
+                        <li><a href="#">2021/06/01 更新情報</a></li>
+                    </ul>
+                </div-->
+
+            </div>
+
+
+        </div>
+
+        <!--div class="flex-column p-0 w-75 d-inline-block" id="divCanvas" style="min-height: 100%">
+        </div-->
+    </div>
+</body>
+
+</html>
