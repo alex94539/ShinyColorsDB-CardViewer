@@ -57,6 +57,7 @@ async function GetIdolUnitList() {
 
 function checkInIdolInfo() {
     const URI = location.pathname.substr(1);
+    console.log(URI);
     if (URI.match(/idolInfo\/(d+)/)) {
         return [true, URI.match(/idolInfo\/(d+)/)[1]];
     } else {
