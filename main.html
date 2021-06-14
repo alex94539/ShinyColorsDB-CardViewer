@@ -27,14 +27,22 @@
     <meta property="twitter:image" content="https://www.shinycolors.moe/283_192x192.png">
 
     <script src="./main.js"></script>
-    <!--link rel="stylesheet" href="./PCardViewer.css"-->
+    <script src="./shared/sidebar.js"></script>
+    <link rel="stylesheet" href="./main.css">
 </head>
 
-<body class="h-100" onload="GetIdolUnitList()">
+<body class="h-100">
     <div class="container-fluid d-flex p-0 h-100">
-        <div class="d-flex flex-column flex-shrink-0 p-3 bg-info d-inline-block h-100 col-md-2" id="divSidebar">
-            <img src="./283_192x192.png" alt="">
-            <div class="list-group list-group-root well" id="divIdolUnitList">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-secondary d-inline-block h-100 col-md-2" id="divSidebar">
+            <a href="#" class="list-group-item p-2 bg-light text-dark custom-rounded rounded-lg" data-toggle="collapse" data-target="#divMainList">首頁</a>
+            <div class="list-group well overflow-auto custom-scroll" id="divMainList">
+                <a href="#" class="list-group-item active">ShinyColorsDB</a>
+                <a href="#" class="list-group-item">最新情報</a>
+                <a href="#" class="list-group-item">無限期招募前端大師= =</a>
+            </div>
+
+            <a href="#" class="list-group-item p-2 bg-light text-dark custom-rounded" data-toggle="collapse" data-target="#divIdolUnitList">角色列表</a>
+            <div class="list-group well overflow-auto collapse custom-scroll" id="divIdolUnitList">
                 <!--a href="#" class="list-group-item" data-toggle="collapse" data-target="#unit1">
                     <i class="glyphicon glyphicon-chevron-right"></i>Illumination Stars
                 </a>
@@ -54,9 +62,10 @@
                     <a href="./8" class="list-group-item">幽谷霧子</a>
                 </div-->
             </div>
+            <a href="#" class="list-group-item p-2 bg-light text-dark custom-rounded rounded-lg">服裝Live2d~~</a>
         </div>
         <div class="d-flex flex-column flex-shrink-0 p-3 d-inline-block col-md-10 h-100" id="divDisplay">
-            <div class="h-100 overflow-auto row row-cols-md-3 row-cols-sm-1">
+            <div class="h-100 overflow-auto row row-cols-md-3 row-cols-sm-1 custom-scroll">
                 <div class="col">
                     <div class="card m-1 rounded-lg">
                         <h2 class="display-5 text-center pt-3 pb-2">

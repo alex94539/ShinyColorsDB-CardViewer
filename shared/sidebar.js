@@ -4,8 +4,9 @@ const CLP = "collapse";
 const LGI = "list-group-item",
     LG = "list-group";
 
+
 async function GetIdolUnitList() {
-    const UnitIdolList = (await axios.get("http://localhost:3000/General/GetIdolUnitList")).data;
+    const UnitIdolList = (await axios.get("https://api.shinycolors.moe/general/getIdolUnitList")).data;
 
     const SideBar = document.getElementById("divIdolUnitList");
 
@@ -29,9 +30,16 @@ async function GetIdolUnitList() {
         UnitDiv.classList.add(CLP);
         UnitDiv.id = `unit${k}`;
 
+        const [isInIdolDetail, idolID] = checkInIdolInfo();
+
         for (let m = 0; m < UnitIdolList[k].UnitIdols.length; m++) {
             const IdolEle = document.createElement("a");
             IdolEle.href = `./${UnitIdolList[k].UnitIdols[m].IdolID}`;
+
+            if (isInIdolDetail && idolID == UnitIdolList[k].UnitIdols[m].IdolID) {
+                IdolEle.classList.add("active");
+            }
+
             IdolEle.classList.add(LGI);
             IdolEle.classList.add("pl-5");
             IdolEle.appendChild(document.createTextNode(UnitIdolList[k].UnitIdols[m].IdolName));
@@ -46,6 +54,11 @@ async function GetIdolUnitList() {
     console.log(UnitIdolList, SideBar);
 }
 
-async function GetIdolInfoByURI() {
-    const CurrentURI = location.pathname.substring(1);
+function checkInIdolInfo() {
+    const URI = location.pathname.substr(1);
+    if (URI.match(/idolInfo\/(d+)/)) {
+        return [true, URI.match(/idolInfo\/(d+)/)[1]];
+    } else {
+        return [false, 0];
+    }
 }
