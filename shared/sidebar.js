@@ -34,8 +34,9 @@ async function GetIdolUnitList() {
 
         for (let m = 0; m < UnitIdolList[k].UnitIdols.length; m++) {
             const IdolEle = document.createElement("a");
-            IdolEle.href = `./${UnitIdolList[k].UnitIdols[m].IdolID}`;
+            IdolEle.href = `./idolInfo/${UnitIdolList[k].UnitIdols[m].IdolID}`;
 
+            console.log(isInIdolDetail, idolID);
             if (isInIdolDetail && idolID == UnitIdolList[k].UnitIdols[m].IdolID) {
                 IdolEle.classList.add("active");
             }
