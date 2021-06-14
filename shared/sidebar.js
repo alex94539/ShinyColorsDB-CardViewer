@@ -11,7 +11,7 @@ async function GetIdolUnitList() {
     const SideBar = document.getElementById("divIdolUnitList");
 
     for (let k = 1; k < UnitIdolList.UnitCount; k++) {
-        console.log(k);
+        //console.log(k);
         const UnitTitle = document.createElement("a");
         UnitTitle.href = "#";
         UnitTitle.classList.add(LGI);
@@ -58,8 +58,8 @@ async function GetIdolUnitList() {
 function checkInIdolInfo() {
     const URI = location.pathname.substr(1);
     console.log(URI);
-    if (URI.match(/idolInfo\/(d+)/g)) {
-        return [true, URI.match(/idolInfo\/(d+)/)[1]];
+    if (URI.match(/idolInfo\/(\d+)/g)) {
+        return [true, URI.match(/idolInfo\/(\d+)/)[1]];
     } else {
         return [false, 0];
     }
