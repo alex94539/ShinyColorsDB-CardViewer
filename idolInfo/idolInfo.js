@@ -34,16 +34,6 @@ function Main() {
     imgL = document.getElementById("imgL");
 }
 
-
-function checkInIdolInfo() {
-    const URI = location.pathname.substr(1);
-    if (URI.match(/idolInfo\/(d+)/)) {
-        return [true, URI.match(/idolInfo\/(d+)/)[1]];
-    } else {
-        return [false, 0];
-    }
-}
-
 function toggleDisplay(img, type) {
     if (type) {
         img.classList.remove("d-none");
