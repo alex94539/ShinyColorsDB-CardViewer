@@ -97,7 +97,7 @@ function checkInIdolInfo() {
 function generateTableRow(arr, isColSpan = false) {
     const tr = document.createElement("tr");
     arr.forEach((element, index) => {
-        const [td1, td2] = index == 2 ? generateTableCell(element, true) : generateTableCell(element);
+        const [td1, td2] = (index == 2 && isColSpan) ? generateTableCell(element, true): generateTableCell(element);
         tr.appendChild(td1);
         tr.appendChild(td2);
     });
