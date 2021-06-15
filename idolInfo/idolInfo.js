@@ -206,7 +206,8 @@ function generateCardList(obj, index) {
     const a = document.createElement("a");
     a.classList.add("nav-link", "pl-2", "pt-1", "pb-1", "list-group-item");
     a.appendChild(document.createTextNode(obj.CardName));
-    a.addEventListener('click', changePicture(obj.BigPic1));
+    a.setAttribute("onclick", `changePicture(${obj.BigPic1})`);
+    //a.addEventListener('click', changePicture());
 
     li.appendChild(a);
 
