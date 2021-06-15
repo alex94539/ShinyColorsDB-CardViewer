@@ -119,7 +119,7 @@ async function GetIdolInfo() {
         idolInfo.CardInfo.forEach(element => {
             generateCardList(element);
         });
-        cardPicture.src = idolInfo.CardInfo[0].BigPic1;
+        cardPicture.src = `https://static.shinycolors.moe/pictures/bigPic/${idolInfo.CardInfo[0].BigPic1}`;
     }
 }
 
