@@ -155,6 +155,10 @@ function ToggleCardListSSR(e) {
     [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
         element.classList.add("d-none");
     });
+    [SSRNavLink, SRNavLink, RNavLink, NNavLink].forEach(element => {
+        element.classList.remove("active");
+    });
+    SSRNavLink.classList.add("activate");
     if (isInPCardList) {
         cardTypeTitle.textContent = "P-SSR";
         PSSRCardList.classList.remove("d-none");
@@ -169,6 +173,10 @@ function ToggleCardListSR(e) {
     [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
         element.classList.add("d-none");
     });
+    [SSRNavLink, SRNavLink, RNavLink, NNavLink].forEach(element => {
+        element.classList.remove("active");
+    });
+    SRNavLink.classList.add("activate");
     if (isInPCardList) {
         cardTypeTitle.textContent = "P-SR";
         PSRCardList.classList.remove("d-none");
@@ -183,6 +191,10 @@ function ToggleCardListR(e) {
     [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
         element.classList.add("d-none");
     });
+    [SSRNavLink, SRNavLink, RNavLink, NNavLink].forEach(element => {
+        element.classList.remove("active");
+    });
+    RNavLink.classList.add("activate");
     if (isInPCardList) {
         cardTypeTitle.textContent = "P-R";
         PRCardList.classList.remove("d-none");
@@ -197,6 +209,10 @@ function ToggleCardListN(e) {
     [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
         element.classList.add("d-none");
     });
+    [SSRNavLink, SRNavLink, RNavLink, NNavLink].forEach(element => {
+        element.classList.remove("active");
+    });
+    NNavLink.classList.add("activate");
     cardTypeTitle.textContent = "S-N";
     SNCardList.classList.remove("d-none");
 }
