@@ -36,10 +36,10 @@ function Main() {
     pNavLink.addEventListener('click', ToggleToPCardList, false);
     sNavLink.addEventListener('click', ToggleToSCardList, false);
 
-    SSSRNavLink.addEventListener('click', ToggleCardList("SSR"));
-    SSRNavLink.addEventListener('click', ToggleCardList("SR"));
-    SRNavLink.addEventListener('click', ToggleCardList("R"));
-    SNNavLink.addEventListener('click', ToggleCardList("N"));
+    SSRNavLink.addEventListener('click', ToggleCardList("SSR"));
+    SRNavLink.addEventListener('click', ToggleCardList("SR"));
+    RNavLink.addEventListener('click', ToggleCardList("R"));
+    NNavLink.addEventListener('click', ToggleCardList("N"));
 
 }
 
