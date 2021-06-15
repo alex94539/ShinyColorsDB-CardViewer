@@ -158,7 +158,7 @@ function ToggleCardListSSR(e) {
     [SSRNavLink, SRNavLink, RNavLink, NNavLink].forEach(element => {
         element.classList.remove("active");
     });
-    SSRNavLink.classList.add("activate");
+    SSRNavLink.classList.add("active");
     if (isInPCardList) {
         cardTypeTitle.textContent = "P-SSR";
         PSSRCardList.classList.remove("d-none");
@@ -176,7 +176,7 @@ function ToggleCardListSR(e) {
     [SSRNavLink, SRNavLink, RNavLink, NNavLink].forEach(element => {
         element.classList.remove("active");
     });
-    SRNavLink.classList.add("activate");
+    SRNavLink.classList.add("active");
     if (isInPCardList) {
         cardTypeTitle.textContent = "P-SR";
         PSRCardList.classList.remove("d-none");
@@ -194,7 +194,7 @@ function ToggleCardListR(e) {
     [SSRNavLink, SRNavLink, RNavLink, NNavLink].forEach(element => {
         element.classList.remove("active");
     });
-    RNavLink.classList.add("activate");
+    RNavLink.classList.add("active");
     if (isInPCardList) {
         cardTypeTitle.textContent = "P-R";
         PRCardList.classList.remove("d-none");
@@ -212,7 +212,7 @@ function ToggleCardListN(e) {
     [SSRNavLink, SRNavLink, RNavLink, NNavLink].forEach(element => {
         element.classList.remove("active");
     });
-    NNavLink.classList.add("activate");
+    NNavLink.classList.add("active");
     cardTypeTitle.textContent = "S-N";
     SNCardList.classList.remove("d-none");
 }
