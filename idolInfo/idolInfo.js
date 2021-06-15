@@ -96,8 +96,8 @@ function checkInIdolInfo() {
 
 function generateTableRow(arr, isColSpan = false) {
     const tr = document.createElement("tr");
-    arr.forEach(element => {
-        const [td1, td2] = generateTableCell(element);
+    arr.forEach((element, index) => {
+        const [td1, td2] = index == 2 ? generateTableCell(element, true) : generateTableCell(element);
         tr.appendChild(td1);
         tr.appendChild(td2);
     });
@@ -113,9 +113,9 @@ function generateTableCell(obj, colorBox = false) {
     const td2 = document.createElement("td");
     td2.classList.add("col-md-3");
 
-    if (colorBox && colspan) {
+    if (!colorBox) {
         td2.appendChild(document.createTextNode(obj.value));
-    } else if (colorBox) {
+    } else {
         const div1 = document.createElement('div');
         div1.classList.add("color-box");
         div1.classList.add("d-inline-block");
