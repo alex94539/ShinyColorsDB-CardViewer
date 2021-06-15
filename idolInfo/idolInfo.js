@@ -36,13 +36,7 @@ function Main() {
     pNavLink.addEventListener('click', ToggleToPCardList, false);
     sNavLink.addEventListener('click', ToggleToSCardList, false);
 
-    PSSRCardList.addEventListener('click', ToggleCardList("PSSR"));
-    PSRCardList.addEventListener('click', ToggleCardList("PSR"));
-    PRCardList.addEventListener('click', ToggleCardList("PR"));
-    SSSRCardList.addEventListener('click', ToggleCardList("SSSR"));
-    SSRCardList.addEventListener('click', ToggleCardList("SSR"));
-    SRCardList.addEventListener('click', ToggleCardList("SR"));
-    SNCardList.addEventListener('click', ToggleCardList("SN"));
+    SSRNavLink.addEventListener('click', ToggleCardList("SSR"));
 
 }
 
@@ -154,26 +148,29 @@ function ToggleCardList(toggleTo) {
     });
 
     switch (toggleTo) {
-        case "PSSR":
-            PSSRCardList.classList.remove("d-none");
-            break;
-        case "PSR":
-            PSSRCardList.classList.remove("d-none");
-            break;
-        case "PR":
-            PSSRCardList.classList.remove("d-none");
-            break;
-        case "SSSR":
-            PSSRCardList.classList.remove("d-none");
-            break;
         case "SSR":
-            PSSRCardList.classList.remove("d-none");
+            if (isInPCardList) {
+                PSSRCardList.classList.remove("d-none");
+            } else {
+                SSSRCardList.classList.remove("d-none")
+            }
             break;
         case "SR":
-            PSSRCardList.classList.remove("d-none");
+            if (isInPCardList) {
+                PSRCardList.classList.remove("d-none");
+            } else {
+                SSRCardList.classList.remove("d-none");
+            }
             break;
-        case "SN":
-            PSSRCardList.classList.remove("d-none");
+        case "R":
+            if (isInPCardList) {
+                PRCardList.classList.remove("d-none");
+            } else {
+                SRCardList.classList.remove("d-none");
+            }
+            break;
+        case "N":
+            SNCardList.classList.remove("d-none");
             break;
     }
 }
