@@ -36,12 +36,12 @@ function Main() {
     pNavLink.addEventListener('click', ToggleToPCardList, false);
     sNavLink.addEventListener('click', ToggleToSCardList, false);
 
-    SSRNavLink.addEventListener('click', ToggleCardList("SSR"));
-    SRNavLink.addEventListener('click', ToggleCardList("SR"));
-    RNavLink.addEventListener('click', ToggleCardList("R"));
-    NNavLink.addEventListener('click', ToggleCardList("N"));
+    SSRNavLink.addEventListener('click', ToggleCardList(e, "SSR"));
+    SRNavLink.addEventListener('click', ToggleCardList(e, "SR"));
+    RNavLink.addEventListener('click', ToggleCardList(e, "R"));
+    NNavLink.addEventListener('click', ToggleCardList(e, "N"));
 
-    ToggleCardList("SSR");
+    ToggleCardList(false, "SSR");
 }
 
 function ChangeTachie() {
@@ -131,7 +131,7 @@ function ToggleToPCardList(e) {
     pNavLink.classList.add("active", "disabled");
     sNavLink.classList.remove("active", "disabled");
 
-    ToggleCardList("SSR");
+    ToggleCardList(false, "SSR");
 
     NNavLink.classList.add("disabled");
 }
@@ -145,17 +145,17 @@ function ToggleToSCardList(e) {
     pNavLink.classList.remove("active", "disabled");
     sNavLink.classList.add("active", "disabled");
 
-    ToggleCardList("SSR");
+    ToggleCardList(false, "SSR");
 
     NNavLink.classList.remove("disabled");
 }
 
 function ToggleCardList(e, toggleTo) {
-    e.preventDefault();
+    if (e) e.preventDefault();
     [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
         element.classList.add("d-none");
     });
-    console.log("hihi");
+    //console.log("hihi");
 
     switch (toggleTo) {
         case "SSR":
