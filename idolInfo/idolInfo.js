@@ -1,5 +1,33 @@
 let count = 0;
 let imgP, imgS, imgL;
+let isInPCardList = false;
+
+function Main() {
+    imgP = document.getElementById("imgP");
+    imgS = document.getElementById("imgS");
+    imgL = document.getElementById("imgL");
+}
+
+function ChangePicture() {
+    count = count + 1 < 3 ? count + 1 : 0;
+    switch (count) {
+        case 0:
+            toggleDisplay(imgP, true);
+            toggleDisplay(imgL, false);
+            toggleDisplay(imgS, false);
+            break;
+        case 1:
+            toggleDisplay(imgP, false);
+            toggleDisplay(imgL, true);
+            toggleDisplay(imgS, false);
+            break;
+        case 2:
+            toggleDisplay(imgP, false);
+            toggleDisplay(imgL, false);
+            toggleDisplay(imgS, true);
+            break;
+    }
+}
 
 async function GetIdolInfo() {
 
@@ -53,32 +81,26 @@ async function GetIdolInfo() {
     }
 }
 
+function ToggleToPCardList() {
+    if (isInPCardList) return;
 
-function ChangePicture() {
-    count = count + 1 < 3 ? count + 1 : 0;
-    switch (count) {
-        case 0:
-            toggleDisplay(imgP, true);
-            toggleDisplay(imgL, false);
-            toggleDisplay(imgS, false);
-            break;
-        case 1:
-            toggleDisplay(imgP, false);
-            toggleDisplay(imgL, true);
-            toggleDisplay(imgS, false);
-            break;
-        case 2:
-            toggleDisplay(imgP, false);
-            toggleDisplay(imgL, false);
-            toggleDisplay(imgS, true);
-            break;
-    }
+    isInPCardList = true;
+
+    const pNavLink = document.getElementById("PList");
+    const sNavLink = document.getElementById("SList");
+    pNavLink.classList.remove("activate", "disabled");
+    sNavLink.classList.add("activate", "disabled");
 }
 
-function Main() {
-    imgP = document.getElementById("imgP");
-    imgS = document.getElementById("imgS");
-    imgL = document.getElementById("imgL");
+function ToggleToSCardList() {
+    if (!isInPCardList) return;
+
+    isInPCardList = false;
+
+    const pNavLink = document.getElementById("PList");
+    const sNavLink = document.getElementById("SList");
+    pNavLink.classList.add("activate", "disabled");
+    sNavLink.classList.remove("activate", "disabled");
 }
 
 function toggleDisplay(img, type) {
