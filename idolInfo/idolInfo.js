@@ -103,7 +103,7 @@ function generateTableRow(arr, isColSpan = false) {
 
 function generateTableCell(obj, colorBox = false) {
     const td1 = document.createElement("td");
-    td1.setAttributeNS("scope", "row");
+    td1.setAttribute("scope", "row");
     td1.classList.add("col-md-1");
     td1.appendChild(document.createTextNode(obj.key));
 
