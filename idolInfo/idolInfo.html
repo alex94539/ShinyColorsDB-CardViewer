@@ -70,7 +70,7 @@
             <img src="" alt="" class="img-fluid" id="imgP">
             <img src="" alt="" class="d-none img-fluid" id="imgL">
             <img src="" alt="" class="d-none img-fluid" id="imgS">
-            <input type="button" value="下一張~~" class="mt-3 w-50 mx-auto" onclick="ChangePicture()">
+            <input type="button" value="下一張~~" class="mt-3 w-50 mx-auto" onclick="ChangeTachie()">
         </div>
         <div class="d-flex flex-column flex-shrink-0 p-3 d-inline-block col-md-6 col-sm-12 h-100" id="divInfo">
             <div class="row d-flex w-100 mx-auto h-100">
@@ -137,10 +137,10 @@
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav-item">
-                                <a class="nav-link active disabled" href="#" id="PList" onclick="ToggleToPCardList();">P卡列表</a>
+                                <a class="nav-link active disabled" href="javascript: void(0)" id="PList">P卡列表</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" id="SList" onclick="ToggleToSCardList();">S卡列表</a>
+                                <a class="nav-link" href="javascript: void(0)" id="SList">S卡列表</a>
                             </li>
                         </ul>
                     </div>
@@ -156,8 +156,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#" id="RList">R</a>
                             </li>
-                            <li class="nav-item disabled">
-                                <a class="nav-link" href="#" id="RList">N</a>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#" id="NList">N</a>
                             </li>
                         </ul>
                     </div>
@@ -165,8 +165,8 @@
                         <!--h5 class="card-title">Special title treatment</h5>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p-->
                         <div class="w-50 col-md-4 d-inline-block">
-                            <h5 class="text-left">P-SSR</h5>
-                            <ul class="text-left list-group" style="font-family: Meiryo; list-style-type: none;">
+                            <h5 class="text-left" id="cardTypeTitle">P-SSR</h5>
+                            <ul class="text-left list-group" id="PSSRCardList" style="font-family: Meiryo; list-style-type: none;">
                                 <li><a href="" class="nav-link pl-2 pt-1 pb-1 list-group-item">【アイドルロード】櫻木真乃</a></li>
                                 <li><a href="" class="nav-link pl-2 pt-1 pb-1 list-group-item">【ほわっとスマイル】櫻木真乃</a></li>
                                 <li><a href="" class="nav-link pl-2 pt-1 pb-1 list-group-item">【ハ♡トフェルトゥギフト】櫻木真乃</a></li>
@@ -174,9 +174,27 @@
                                 <li><a href="" class="nav-link pl-2 pt-1 pb-1 list-group-item">【深染め、いろみぐさ】櫻木真乃</a></li>
                                 <li><a href="" class="nav-link pl-2 pt-1 pb-1 list-group-item">【ソラを跳ね】櫻木真乃</a></li>
                             </ul>
+                            <ul class="text-left list-group d-none" id="PSRCardList" style="font-family: Meiryo; list-style-type: none;">
+
+                            </ul>
+                            <ul class="text-left list-group d-none" id="PRCardList" style="font-family: Meiryo; list-style-type: none;">
+
+                            </ul>
+                            <ul class="text-left list-group d-none" id="SSSRCardList" style="font-family: Meiryo; list-style-type: none;">
+
+                            </ul>
+                            <ul class="text-left list-group d-none" id="SSRCardList" style="font-family: Meiryo; list-style-type: none;">
+
+                            </ul>
+                            <ul class="text-left list-group d-none" id="SRCardList" style="font-family: Meiryo; list-style-type: none;">
+
+                            </ul>
+                            <ul class="text-left list-group d-none" id="SNCardList" style="font-family: Meiryo; list-style-type: none;">
+
+                            </ul>
                         </div>
                         <div class="w-50 col-md-8 d-inline-block mh-100">
-                            <img src="https://static.shinycolors.moe/pictures/bigPic/0882d542-513e-4409-8714-67b2c6ee173f.png" alt="" class="img-fluid">
+                            <img src="https://static.shinycolors.moe/pictures/bigPic/0882d542-513e-4409-8714-67b2c6ee173f.png" alt="" class="img-fluid" id="cardPicture">
                         </div>
                     </div>
                 </div>

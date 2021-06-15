@@ -1,14 +1,43 @@
 let count = 0;
 let imgP, imgS, imgL;
-let isInPCardList = false;
+let isInPCardList = true;
+let pNavLink, sNavLink;
+let SSRNavLink, SRNavLink, RNavLink, NNavLink;
+let PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList;
+let cardPicture;
+let cardTypeTitle;
 
 function Main() {
     imgP = document.getElementById("imgP");
     imgS = document.getElementById("imgS");
     imgL = document.getElementById("imgL");
+
+    pNavLink = document.getElementById("PList");
+    sNavLink = document.getElementById("SList");
+
+    SSRNavLink = document.getElementById("SSRList");
+    SRNavLink = document.getElementById("SRList");
+    RNavLink = document.getElementById("RList");
+    NNavLink = document.getElementById("NList");
+
+    cardTypeTitle = document.getElementById("cardTypeTitle");
+
+    PSSRCardList = document.getElementById("PSSRCardList");
+    PSRCardList = document.getElementById("PSRCardList");
+    PRCardList = document.getElementById("PRCardList");
+
+    SSSRCardList = document.getElementById("SSSRCardList");
+    SSRCardList = document.getElementById("SSRCardList");
+    SRCardList = document.getElementById("SRCardList");
+    SNCardList = document.getElementById("SNCardList");
+
+    cardPicture = document.getElementById("cardPicture");
+
+    pNavLink.addEventListener('click', ToggleToPCardList, false);
+    sNavLink.addEventListener('click', ToggleToSCardList, false);
 }
 
-function ChangePicture() {
+function ChangeTachie() {
     count = count + 1 < 3 ? count + 1 : 0;
     switch (count) {
         case 0:
@@ -78,29 +107,40 @@ async function GetIdolInfo() {
 
         table.appendChild(tbody)
         idolTable.appendChild(table);
+
+        //generate card list part
+        idolInfo.CardInfo.forEach(element => {
+            generateCardList(element);
+        });
     }
 }
 
-function ToggleToPCardList() {
+function ToggleToPCardList(e) {
+    e.preventDefault();
     if (isInPCardList) return;
 
     isInPCardList = true;
 
-    const pNavLink = document.getElementById("PList");
-    const sNavLink = document.getElementById("SList");
-    pNavLink.classList.remove("activate", "disabled");
-    sNavLink.classList.add("activate", "disabled");
+    pNavLink.classList.add("active", "disabled");
+    sNavLink.classList.remove("active", "disabled");
+
+    NNavLink.classList.add("disabled");
 }
 
-function ToggleToSCardList() {
+function ToggleToSCardList(e) {
+    e.preventDefault();
     if (!isInPCardList) return;
 
     isInPCardList = false;
 
-    const pNavLink = document.getElementById("PList");
-    const sNavLink = document.getElementById("SList");
-    pNavLink.classList.add("activate", "disabled");
-    sNavLink.classList.remove("activate", "disabled");
+    pNavLink.classList.remove("active", "disabled");
+    sNavLink.classList.add("active", "disabled");
+
+    NNavLink.classList.remove("disabled");
+}
+
+function ToggleCardList(toggleTo) {
+
 }
 
 function toggleDisplay(img, type) {
@@ -159,4 +199,43 @@ function generateTableCell(obj, colorBox = false) {
     }
 
     return [td1, td2];
+}
+
+function generateCardList(obj, index) {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.classList.add("nav-link", "pl-2", "pt-1", "pb-1", "list-group-item");
+    a.appendChild(document.createTextNode(obj.CardName));
+    a.addEventListener('click', changePicture(obj.BigPic1));
+
+    li.appendChild(a);
+
+    switch (obj.CardType) {
+        case "P_SSR":
+            PSSRCardList.appendChild(li);
+            break;
+        case "P_SR":
+            PSRCardList.appendChild(li);
+            break;
+        case "P_R":
+            PRCardList.appendChild(li);
+            break;
+        case "S_SSR":
+            SSSRCardList.appendChild(li);
+            break;
+        case "S_SR":
+            SSRCardList.appendChild(li);
+            break;
+        case "S_R":
+            SRCardList.appendChild(li);
+            break;
+        case "S_N":
+            SNCardList.appendChild(li);
+            break;
+
+    }
+}
+
+function changePicture(link) {
+    cardPicture.src = link;
 }
