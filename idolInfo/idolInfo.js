@@ -119,6 +119,7 @@ async function GetIdolInfo() {
         idolInfo.CardInfo.forEach(element => {
             generateCardList(element);
         });
+        cardPicture.src = idolInfo.CardInfo[0].BigPic1;
     }
 }
 
