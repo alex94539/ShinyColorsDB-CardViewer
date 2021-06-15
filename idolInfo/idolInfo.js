@@ -238,5 +238,6 @@ function generateCardList(obj, index) {
 }
 
 function changePicture(link) {
+    console.log("hi");
     cardPicture.src = `https://static.shinycolors.moe/pictures/bigPic/${link}`;
 }
