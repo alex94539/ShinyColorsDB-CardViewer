@@ -155,7 +155,7 @@ function ToggleCardList(e, toggleTo) {
     [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
         element.classList.add("d-none");
     });
-    //console.log("hihi");
+    console.log("hihi");
 
     switch (toggleTo) {
         case "SSR":
