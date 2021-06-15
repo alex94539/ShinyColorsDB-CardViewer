@@ -38,7 +38,8 @@ async function GetIdolUnitList() {
             console.log(isInIdolDetail, idolID);
             if (isInIdolDetail && idolID == UnitIdolList[k].UnitIdols[m].IdolID) {
                 IdolEle.classList.add("active");
-                UnitTitle.classList.remove(CLP)
+                UnitTitle.classList.remove(CLP);
+                UnitTitle.classList.add("active");
             }
 
             IdolEle.classList.add(LGI);
