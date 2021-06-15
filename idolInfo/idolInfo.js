@@ -31,8 +31,13 @@ async function GetIdolInfo() {
         const tr3 = generateTableRow([{ key: "團體", value: idolInfo.UnitName }, { key: "興趣", value: idolInfo.Interest }, { key: "代表色", value: idolInfo.Color1 }], true);
         tbody.appendChild(tr3);
 
-        //const tr4;
-        //tbody.appendChild(tr4);
+        const tr4 = generateTableRow([{ key: "年齡", value: idolInfo.Age }, { key: "特技", value: idolInfo.SpecialSkill }]);
+        const block = document.createElement("td");
+        block.classList.add("col-md-4");
+        block.setAttribute("colspan", 2);
+        block.setAttribute("rowspan", 4);
+        tr4.appendChild(block)
+        tbody.appendChild(tr4);
 
         const tr5 = generateTableRow([{ key: "身高", value: idolInfo.Height }, { key: "血型", value: idolInfo.BloodType }]);
         tbody.appendChild(tr5);
@@ -126,6 +131,9 @@ function generateTableCell(obj, colorBox = false) {
         const div2 = document.createElement("div");
         div2.classList.add("d-inline-block");
         div2.appendChild(document.createTextNode(obj.value));
+
+        td2.appendChild(div1);
+        td2.appendChild(div2);
     }
 
     return [td1, td2];
