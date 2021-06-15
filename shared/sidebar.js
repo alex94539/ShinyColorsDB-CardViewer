@@ -23,7 +23,6 @@ async function GetIdolUnitList() {
         UnitTitle.appendChild(UnitI);
         UnitTitle.appendChild(document.createTextNode(UnitIdolList[k].UnitName));
 
-        SideBar.appendChild(UnitTitle);
 
         const UnitDiv = document.createElement("div");
         UnitDiv.classList.add(LG);
@@ -39,6 +38,7 @@ async function GetIdolUnitList() {
             console.log(isInIdolDetail, idolID);
             if (isInIdolDetail && idolID == UnitIdolList[k].UnitIdols[m].IdolID) {
                 IdolEle.classList.add("active");
+                UnitTitle.classList.remove(CLP)
             }
 
             IdolEle.classList.add(LGI);
@@ -48,6 +48,7 @@ async function GetIdolUnitList() {
             UnitDiv.appendChild(IdolEle);
         }
 
+        SideBar.appendChild(UnitTitle);
         SideBar.appendChild(UnitDiv);
 
     }
