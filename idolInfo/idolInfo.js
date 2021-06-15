@@ -35,6 +35,15 @@ function Main() {
 
     pNavLink.addEventListener('click', ToggleToPCardList, false);
     sNavLink.addEventListener('click', ToggleToSCardList, false);
+
+    PSSRCardList.addEventListener('click', ToggleCardList("PSSR"));
+    PSRCardList.addEventListener('click', ToggleCardList("PSR"));
+    PRCardList.addEventListener('click', ToggleCardList("PR"));
+    SSSRCardList.addEventListener('click', ToggleCardList("SSSR"));
+    SSRCardList.addEventListener('click', ToggleCardList("SSR"));
+    SRCardList.addEventListener('click', ToggleCardList("SR"));
+    SNCardList.addEventListener('click', ToggleCardList("SN"));
+
 }
 
 function ChangeTachie() {
@@ -140,7 +149,33 @@ function ToggleToSCardList(e) {
 }
 
 function ToggleCardList(toggleTo) {
+    [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
+        element.classList.add("d-none");
+    });
 
+    switch (toggleTo) {
+        case "PSSR":
+            PSSRCardList.classList.remove("d-none");
+            break;
+        case "PSR":
+            PSSRCardList.classList.remove("d-none");
+            break;
+        case "PR":
+            PSSRCardList.classList.remove("d-none");
+            break;
+        case "SSSR":
+            PSSRCardList.classList.remove("d-none");
+            break;
+        case "SSR":
+            PSSRCardList.classList.remove("d-none");
+            break;
+        case "SR":
+            PSSRCardList.classList.remove("d-none");
+            break;
+        case "SN":
+            PSSRCardList.classList.remove("d-none");
+            break;
+    }
 }
 
 function toggleDisplay(img, type) {
