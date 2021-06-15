@@ -41,6 +41,7 @@ function Main() {
     RNavLink.addEventListener('click', ToggleCardList("R"));
     NNavLink.addEventListener('click', ToggleCardList("N"));
 
+    ToggleCardList("SSR");
 }
 
 function ChangeTachie() {
@@ -99,7 +100,7 @@ async function GetIdolInfo() {
         block.classList.add("col-md-4");
         block.setAttribute("colspan", 2);
         block.setAttribute("rowspan", 4);
-        tr4.appendChild(block)
+        tr4.appendChild(block);
         tbody.appendChild(tr4);
 
         const tr5 = generateTableRow([{ key: "身高", value: idolInfo.Height }, { key: "血型", value: idolInfo.BloodType }]);
@@ -111,7 +112,7 @@ async function GetIdolInfo() {
         const tr7 = generateTableRow([{ key: "三圍", value: idolInfo.ThreeSize }, { key: "CV", value: idolInfo.CV }]);
         tbody.appendChild(tr7);
 
-        table.appendChild(tbody)
+        table.appendChild(tbody);
         idolTable.appendChild(table);
 
         //generate card list part
@@ -149,35 +150,43 @@ function ToggleToSCardList(e) {
     NNavLink.classList.remove("disabled");
 }
 
-function ToggleCardList(toggleTo) {
+function ToggleCardList(e, toggleTo) {
+    e.preventDefault();
     [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
         element.classList.add("d-none");
     });
-    console.log("hihi")
+    console.log("hihi");
 
     switch (toggleTo) {
         case "SSR":
             if (isInPCardList) {
+                cardTypeTitle.textContent = "P-SSR";
                 PSSRCardList.classList.remove("d-none");
             } else {
-                SSSRCardList.classList.remove("d-none")
+                cardTypeTitle.textContent = "P-SSR";
+                SSSRCardList.classList.remove("d-none");
             }
             break;
         case "SR":
             if (isInPCardList) {
+                cardTypeTitle.textContent = "P-SR";
                 PSRCardList.classList.remove("d-none");
             } else {
+                cardTypeTitle.textContent = "S-SR";
                 SSRCardList.classList.remove("d-none");
             }
             break;
         case "R":
             if (isInPCardList) {
+                cardTypeTitle.textContent = "P-R";
                 PRCardList.classList.remove("d-none");
             } else {
+                cardTypeTitle.textContent = "S-R";
                 SRCardList.classList.remove("d-none");
             }
             break;
         case "N":
+            cardTypeTitle.textContent = "S-N";
             SNCardList.classList.remove("d-none");
             break;
     }
