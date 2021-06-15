@@ -7,6 +7,7 @@ async function GetIdolInfo() {
 
     if (isInIdolDetail) {
         const idolInfo = (await axios.get(`https://api.shinycolors.moe/general/getIdolInfo/${idolID}`)).data;
+        console.log(idolInfo);
 
         //change Picture part
         imgP.src = `https://static.shinycolors.moe/pictures/tachie/private/${idolInfo.NickName}.png`;
