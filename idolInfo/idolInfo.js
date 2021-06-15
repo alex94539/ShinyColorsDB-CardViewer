@@ -36,7 +36,10 @@ function Main() {
     pNavLink.addEventListener('click', ToggleToPCardList, false);
     sNavLink.addEventListener('click', ToggleToSCardList, false);
 
-    SSRNavLink.addEventListener('click', ToggleCardList("SSR"));
+    SSSRNavLink.addEventListener('click', ToggleCardList("SSR"));
+    SSRNavLink.addEventListener('click', ToggleCardList("SR"));
+    SRNavLink.addEventListener('click', ToggleCardList("R"));
+    SNNavLink.addEventListener('click', ToggleCardList("N"));
 
 }
 
@@ -127,6 +130,8 @@ function ToggleToPCardList(e) {
     pNavLink.classList.add("active", "disabled");
     sNavLink.classList.remove("active", "disabled");
 
+    ToggleCardList("SSR");
+
     NNavLink.classList.add("disabled");
 }
 
@@ -138,6 +143,8 @@ function ToggleToSCardList(e) {
 
     pNavLink.classList.remove("active", "disabled");
     sNavLink.classList.add("active", "disabled");
+
+    ToggleCardList("SSR");
 
     NNavLink.classList.remove("disabled");
 }
