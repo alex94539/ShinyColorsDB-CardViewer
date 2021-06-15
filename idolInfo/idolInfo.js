@@ -42,6 +42,8 @@ async function GetIdolInfo() {
         const tr7 = generateTableRow([{ key: "三圍", value: idolInfo.ThreeSize }, { key: "CV", value: idolInfo.CV }]);
         tbody.appendChild(tr7);
 
+        table.appendChild(tbody)
+        idolTable.appendChild(table);
     }
 }
 
