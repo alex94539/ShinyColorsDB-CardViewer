@@ -36,12 +36,12 @@ function Main() {
     pNavLink.addEventListener('click', ToggleToPCardList, false);
     sNavLink.addEventListener('click', ToggleToSCardList, false);
 
-    SSRNavLink.addEventListener('click', ToggleCardList("SSR"));
-    SRNavLink.addEventListener('click', ToggleCardList("SR"));
-    RNavLink.addEventListener('click', ToggleCardList("R"));
-    NNavLink.addEventListener('click', ToggleCardList("N"));
+    SSRNavLink.addEventListener('click', ToggleCardListSSR, false);
+    SRNavLink.addEventListener('click', ToggleCardListSR, false);
+    RNavLink.addEventListener('click', ToggleCardListR, false);
+    NNavLink.addEventListener('click', ToggleCardListN, false);
 
-    ToggleCardList(false, "SSR");
+    ToggleCardListSSR(false);
 }
 
 function ChangeTachie() {
@@ -131,7 +131,7 @@ function ToggleToPCardList(e) {
     pNavLink.classList.add("active", "disabled");
     sNavLink.classList.remove("active", "disabled");
 
-    ToggleCardList(false, "SSR");
+    ToggleCardListSSR(false);
 
     NNavLink.classList.add("disabled");
 }
@@ -145,51 +145,60 @@ function ToggleToSCardList(e) {
     pNavLink.classList.remove("active", "disabled");
     sNavLink.classList.add("active", "disabled");
 
-    ToggleCardList(false, "SSR");
+    ToggleCardListSSR(false);
 
     NNavLink.classList.remove("disabled");
 }
 
-function ToggleCardList(e, toggleTo) {
+function ToggleCardListSSR(e) {
     if (e) e.preventDefault();
     [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
         element.classList.add("d-none");
     });
-    console.log("hihi");
-
-    switch (toggleTo) {
-        case "SSR":
-            if (isInPCardList) {
-                cardTypeTitle.textContent = "P-SSR";
-                PSSRCardList.classList.remove("d-none");
-            } else {
-                cardTypeTitle.textContent = "P-SSR";
-                SSSRCardList.classList.remove("d-none");
-            }
-            break;
-        case "SR":
-            if (isInPCardList) {
-                cardTypeTitle.textContent = "P-SR";
-                PSRCardList.classList.remove("d-none");
-            } else {
-                cardTypeTitle.textContent = "S-SR";
-                SSRCardList.classList.remove("d-none");
-            }
-            break;
-        case "R":
-            if (isInPCardList) {
-                cardTypeTitle.textContent = "P-R";
-                PRCardList.classList.remove("d-none");
-            } else {
-                cardTypeTitle.textContent = "S-R";
-                SRCardList.classList.remove("d-none");
-            }
-            break;
-        case "N":
-            cardTypeTitle.textContent = "S-N";
-            SNCardList.classList.remove("d-none");
-            break;
+    if (isInPCardList) {
+        cardTypeTitle.textContent = "P-SSR";
+        PSSRCardList.classList.remove("d-none");
+    } else {
+        cardTypeTitle.textContent = "S-SSR";
+        SSSRCardList.classList.remove("d-none");
     }
+}
+
+function ToggleCardListSR(e) {
+    if (e) e.preventDefault();
+    [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
+        element.classList.add("d-none");
+    });
+    if (isInPCardList) {
+        cardTypeTitle.textContent = "P-SR";
+        PSRCardList.classList.remove("d-none");
+    } else {
+        cardTypeTitle.textContent = "S-SR";
+        SSRCardList.classList.remove("d-none");
+    }
+}
+
+function ToggleCardListR(e) {
+    if (e) e.preventDefault();
+    [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
+        element.classList.add("d-none");
+    });
+    if (isInPCardList) {
+        cardTypeTitle.textContent = "P-R";
+        PRCardList.classList.remove("d-none");
+    } else {
+        cardTypeTitle.textContent = "S-R";
+        SRCardList.classList.remove("d-none");
+    }
+}
+
+function ToggleCardListN(e) {
+    if (e) e.preventDefault();
+    [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
+        element.classList.add("d-none");
+    });
+    cardTypeTitle.textContent = "S-N";
+    SNCardList.classList.remove("d-none");
 }
 
 function toggleDisplay(img, type) {
