@@ -153,6 +153,7 @@ function ToggleCardList(toggleTo) {
     [PSSRCardList, PSRCardList, PRCardList, SSSRCardList, SSRCardList, SRCardList, SNCardList].forEach(element => {
         element.classList.add("d-none");
     });
+    console.log("hihi")
 
     switch (toggleTo) {
         case "SSR":
@@ -277,6 +278,5 @@ function generateCardList(obj, index) {
 }
 
 function changePicture(link) {
-    console.log("hi");
     cardPicture.src = `https://static.shinycolors.moe/pictures/bigPic/${link}`;
 }
