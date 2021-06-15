@@ -30,8 +30,8 @@ async function GetIdolInfo() {
         const tr3 = generateTableRow([{ key: "團體", value: idolInfo.UnitName }, { key: "興趣", value: idolInfo.Interest }, { key: "代表色", value: idolInfo.Color1 }], true);
         tbody.appendChild(tr3);
 
-        const tr4;
-        tbody.appendChild(tr4);
+        //const tr4;
+        //tbody.appendChild(tr4);
 
         const tr5 = generateTableRow([{ key: "身高", value: idolInfo.Height }, { key: "血型", value: idolInfo.BloodType }]);
         tbody.appendChild(tr5);
