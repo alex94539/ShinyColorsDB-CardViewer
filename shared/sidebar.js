@@ -10,7 +10,7 @@ async function GetIdolUnitList() {
 
     const SideBar = document.getElementById("divIdolUnitList");
 
-    for (let k = 1; k < UnitIdolList.UnitCount; k++) {
+    for (let k = 1; k <= UnitIdolList.UnitCount; k++) {
         //console.log(k);
         const UnitTitle = document.createElement("a");
         UnitTitle.href = "#";
