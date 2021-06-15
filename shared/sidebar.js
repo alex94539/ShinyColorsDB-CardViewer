@@ -52,7 +52,7 @@ async function GetIdolUnitList() {
 
     }
 
-    console.log(UnitIdolList, SideBar);
+    //console.log(UnitIdolList, SideBar);
 }
 
 function checkInIdolInfo() {
